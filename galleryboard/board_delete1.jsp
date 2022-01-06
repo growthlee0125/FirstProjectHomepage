@@ -11,7 +11,7 @@
 <html lang="ko">
 <head>
 <jsp:include page="gallery_head.jsp"></jsp:include>
-<%
+	<%
 	String id = (String)session.getAttribute("id");	
 	if (id == null) {
 	%>
@@ -90,9 +90,9 @@
 		<form action="board_delete1_ok.jsp" method="post" name="dfrm">
 			<input type="hidden" name="seq" value="<%=seq%>" />
 			<div class="mb-3">
-				    <label for="subject" class="form-label">제목</label> 
+				    	<label for="subject" class="form-label">제목</label> 
 					<input type="text" class="form-control" name="subject" value="<%=subject%>" readonly="readonly">  
-				    <label for="name" class="form-label">글쓴이</label> 
+				    	<label for="name" class="form-label">글쓴이</label> 
 					<input type="text" class="form-control" name="name" value="<%=name%>" readonly="readonly">  
 					<label for="pass" class="form-label">비밀번호</label> 
 					<input type="password" class="form-control" name="pass"> 			
@@ -100,13 +100,13 @@
 			<div class="btn_area">
 					<input type="button" class="btn btn-dark"  id="submit1" value="삭제하기" style="cursor: pointer;" />
 					<input type="button" value="취소하기" class="btn btn-danger"
-						   style="cursor: pointer;"
-						   onclick="location.href='board_view1.jsp?cpage=<%=cpage%>&seq=<%=seq%>'" />
+					       style="cursor: pointer;"
+					       onclick="location.href='board_view1.jsp?cpage=<%=cpage%>&seq=<%=seq%>'" />
 					<input type="button" value="목록으로" class="btn btn-dark"
-						   style="cursor: pointer;" onclick="location.href='board_list1.jsp?cpage=<%=cpage%>'" /> 
+					       style="cursor: pointer;" onclick="location.href='board_list1.jsp?cpage=<%=cpage%>'" /> 
 			</div>
 		</form>
 	</div>
-	<jsp:include page="../contactbar.jsp"></jsp:include>
+<jsp:include page="../contactbar.jsp"></jsp:include>
 </body>
 </html>
