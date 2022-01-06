@@ -89,7 +89,6 @@ public class BoardDAO {
 			e.printStackTrace();
 			System.out.println("DAO : 디비 연결 실패! ");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			closeDB();
@@ -109,8 +108,9 @@ public class BoardDAO {
 			sql = "select count(*) from board_db";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
+			
 			if (rs.next()) {
-				cnt = rs.getInt(1); // 인덱스
+			   cnt = rs.getInt(1);
 			}
 
 			System.out.println("DAO : 글 개수 확인 " + cnt);
@@ -120,7 +120,6 @@ public class BoardDAO {
 		} finally {
 			closeDB();
 		}
-
 		return cnt;
 	}
 	// getBoardCount()
@@ -136,7 +135,7 @@ public class BoardDAO {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				cnt = rs.getInt(1); // 인덱스
+				cnt = rs.getInt(1);
 			}
 
 			System.out.println("DAO : 갤러리 게시판 글 개수 확인 " + cnt);
@@ -160,7 +159,6 @@ public class BoardDAO {
 			con = getCon();
 			sql = "select * from board_db";
 			pstmt = con.prepareStatement(sql);
-
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
@@ -201,7 +199,7 @@ public class BoardDAO {
 		try {
 			con = getCon();
 			
-			//  limit 시작행-1,개수 => 원하는 개수만큼 짤라서 처리 
+			// limit 시작행-1,개수 => 원하는 개수만큼 짤라서 처리 
 			sql ="select * from board_db "
 					+ "order by re_ref desc, re_seq asc "
 					+ "limit ?,?";
@@ -242,7 +240,7 @@ public class BoardDAO {
 	}
 	// getBoardList(startRow,pageSize)
 	
-	//	updateReadcount(num)
+	// updateReadcount(num)
 	public void updateReadcount(int num){
 		
 		try {
@@ -261,7 +259,7 @@ public class BoardDAO {
 			closeDB();
 		}
 	}
-	//	updateReadcount(num)
+	// updateReadcount(num)
 	
 	// getBoard(num)
 	public BoardBean getBoard(int num){
@@ -270,13 +268,12 @@ public class BoardDAO {
 		
 		try {
 			con = getCon();
-			// (num에 해당하는 모든 글의 정보가져오기)
 			sql = "select * from board_db "
 					+ " where num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
-			
 			rs = pstmt.executeQuery();
+			
 			if(rs.next()){
 				bb = new BoardBean();
 				bb.setContent(rs.getString("content"));
@@ -322,7 +319,6 @@ public class BoardDAO {
 				if(bb.getPass().equals(rs.getString("pass"))){
 					sql = "update board_db set name=?,subject=?,content=? where num=?";
 					pstmt = con.prepareStatement(sql);
-					
 					pstmt.setString(1, bb.getName());
 					pstmt.setString(2, bb.getSubject());
 					pstmt.setString(3, bb.getContent());
