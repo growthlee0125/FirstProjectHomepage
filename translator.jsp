@@ -51,13 +51,14 @@ font-weight: bold;
 	</div>
 	<!-- Jquery  -->
 	<script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
-    <!-- open api function -->
-    <script>
-      $(document).ready(function () {
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"
+        ></script>
+    	
+	<!-- open api function -->
+    	<script>
+      	$(document).ready(function () {
         $("#search").click(function () {
           $.ajax({
             method: "GET",
@@ -73,8 +74,8 @@ font-weight: bold;
           }).done(function (msg) {
             $("textarea").text(msg.translated_text);
           });
-        });
-      });
-    </script>
+         });
+     	});
+       </script>
 </body>
 </html>
