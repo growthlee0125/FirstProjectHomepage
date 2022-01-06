@@ -19,9 +19,10 @@
 	<%
 	request.setCharacterEncoding("utf-8");
 	BoardDAO bDAO = new BoardDAO();
-    int cnt = bDAO.getgalleryCount();
+        int cnt = bDAO.getgalleryCount();
 
 	int cpage = 1;
+	
 	if(request.getParameter("cpage") != null && !request.getParameter("cpage").equals("")) {
 		cpage = Integer.parseInt(request.getParameter("cpage"));
 	}
@@ -114,7 +115,6 @@
 			&gt; 커뮤니티 &gt; <strong>갤러리게시판</strong>
 		</p>
 	</div> 
-	
 	<div class="contents_sub">			
 		<div class="board_top">
 			<div class="bold">
@@ -132,53 +132,53 @@
 		<!-- 페이지 -->
 		<div class="paginate_regular">
 			<div class="board_pagetab" align="middle">
-<%			
-	int startBlock = ( ( cpage-1 ) / blockPerPage ) * blockPerPage + 1;
-	int endBlock = ( ( cpage-1 ) / blockPerPage ) * blockPerPage + blockPerPage;
-	if( endBlock >= totalPage ) {
-		endBlock = totalPage;
-	}
+			<%			
+			int startBlock = ( ( cpage-1 ) / blockPerPage ) * blockPerPage + 1;
+			int endBlock = ( ( cpage-1 ) / blockPerPage ) * blockPerPage + blockPerPage;
+			if( endBlock >= totalPage ) {
+				endBlock = totalPage;
+			}
 
-	if( startBlock == 1 ) {
-		out.println( "<span class='on'>&lt;&lt;</span>" );
-	} else {
-		out.println( "<span class='off'><a href='board_list1.jsp?cpage=" + ( startBlock - blockPerPage ) + "'>&lt;&lt;</a></span>" );
-	}
-	
-	out.println( "&nbsp;" );
+			if( startBlock == 1 ) {
+				out.println( "<span class='on'>&lt;&lt;</span>" );
+			} else {
+				out.println( "<span class='off'><a href='board_list1.jsp?cpage=" + ( startBlock - blockPerPage ) + "'>&lt;&lt;</a></span>" );
+			}
 
-	if( cpage == 1 ) {
-		out.println( "<span class='on'>&lt;</span>" );
-	} else {
-		out.println( "<span class='off'><a href='board_list1.jsp?cpage=" + ( cpage - 1 )+ "'>&lt;&nbsp;</a></span>" );
-	}
-	
-	out.println( "&nbsp;&nbsp;" );
+			out.println( "&nbsp;" );
 
-	for( int i=startBlock ; i<=endBlock ; i++ ) {
-		if( cpage == i ) {
-			out.println( "<span class='on'>[ " + i + " ]</span>" );
-		} else {
-			out.println( "<span class='off'><a href='board_list1.jsp?cpage=" + i + "'>" + i + "</a></span>" );
-		}
-	}
+			if( cpage == 1 ) {
+				out.println( "<span class='on'>&lt;</span>" );
+			} else {
+				out.println( "<span class='off'><a href='board_list1.jsp?cpage=" + ( cpage - 1 )+ "'>&lt;&nbsp;</a></span>" );
+			}
 
-	out.println( "&nbsp;&nbsp;" );
-	
-	if( cpage == totalPage ) {
-		out.println( "<span class='on'>&gt;</span>" );
-	} else {
-		out.println( "<span class='off'><a href='board_list1.jsp?cpage=" + ( cpage + 1 )+ "'>&gt;</a></span>" );
-	}
-	
-	out.println( "&nbsp;" );
-	
-	if( endBlock == totalPage ) {
-		out.println( "<span class='on'>&gt;&gt;</span>" );
-	} else {
-		out.println( "<span class='off'><a href='board_list1.jsp?cpage=" + ( startBlock + blockPerPage ) + "'>&gt;&gt;</a></span>" );
-	}
-	%>
+			out.println( "&nbsp;&nbsp;" );
+
+			for( int i=startBlock ; i<=endBlock ; i++ ) {
+				if( cpage == i ) {
+					out.println( "<span class='on'>[ " + i + " ]</span>" );
+				} else {
+					out.println( "<span class='off'><a href='board_list1.jsp?cpage=" + i + "'>" + i + "</a></span>" );
+				}
+			}
+
+			out.println( "&nbsp;&nbsp;" );
+
+			if( cpage == totalPage ) {
+				out.println( "<span class='on'>&gt;</span>" );
+			} else {
+				out.println( "<span class='off'><a href='board_list1.jsp?cpage=" + ( cpage + 1 )+ "'>&gt;</a></span>" );
+			}
+
+			out.println( "&nbsp;" );
+
+			if( endBlock == totalPage ) {
+				out.println( "<span class='on'>&gt;&gt;</span>" );
+			} else {
+				out.println( "<span class='off'><a href='board_list1.jsp?cpage=" + ( startBlock + blockPerPage ) + "'>&gt;&gt;</a></span>" );
+			}
+			%>
 			</div>
 		</div>
 	</div>
