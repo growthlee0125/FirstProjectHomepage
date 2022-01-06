@@ -40,9 +40,9 @@
 			<td>주소</td>
 		</tr>
 		<%
-      	     for(int i=0 ; i<memberlist.size() ; i++){
-    	     MemberBean lmb = (MemberBean) memberlist.get(i);
-        %>
+      	        for(int i=0 ; i<memberlist.size() ; i++){
+    	        MemberBean lmb = (MemberBean) memberlist.get(i);
+                %>
 		<tr>
 			<td><%=lmb.getId() %></td>
 			<td><%=lmb.getName() %></td>
@@ -52,11 +52,11 @@
 			<td><%=lmb.getAddress() %></td>
 		</tr>
 		<%
-          }  
-        %>
+                }  
+                %>
 	</table>
 	<button class="btn btn-dark list_btn" onclick="location.href='main.jsp';">마이페이지</button>
   </div>
-  <jsp:include page="../contactbar.jsp"></jsp:include>
+<jsp:include page="../contactbar.jsp"></jsp:include>
 </body>
 </html>
