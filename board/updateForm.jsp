@@ -17,13 +17,12 @@
 	<%
 	}
 
-     int num = Integer.parseInt(request.getParameter("num"));
-     String pageNum = request.getParameter("pageNum");
+     	int num = Integer.parseInt(request.getParameter("num"));
+     	String pageNum = request.getParameter("pageNum");
      
-     BoardDAO bdao = new BoardDAO();
-     BoardBean bb = bdao.getBoard(num);    
+     	BoardDAO bdao = new BoardDAO();
+     	BoardBean bb = bdao.getBoard(num);    
    	%>
-
 </head>
 <body>
 	<jsp:include page="board_navbar.jsp"></jsp:include>
@@ -45,7 +44,7 @@
 				<input type="hidden" name="num" value="<%=num%>"> 
   				<label for="name" class="form-label">글쓴이</label>
   				<input type="text" class="form-control" name="name" 
-  				   	   value="<%=bb.getName()%>" readonly="readonly" id="name" >			
+  				       value="<%=bb.getName()%>" readonly="readonly" id="name" >			
 			</div>
 			<div class="mb-3">
   				<label for="pass" class="form-label">비밀번호</label>
@@ -66,6 +65,6 @@
 			<input type="button" class="btn btn-danger" value="취소하기" onclick="history.back();">    
 		</form>
 	</fieldset>
-	<jsp:include page="../contactbar.jsp"></jsp:include>
+<jsp:include page="../contactbar.jsp"></jsp:include>
 </body>
 </html>
