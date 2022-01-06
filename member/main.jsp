@@ -17,11 +17,11 @@
 <body>
 	<jsp:include page="member_navbar.jsp"></jsp:include>
 	<% 
-     String id = (String)session.getAttribute("id");
+         String id = (String)session.getAttribute("id");
      
 	 if(id == null){
     	 response.sendRedirect("loginForm.jsp");
-     }
+         }
    	%>
 	<section class="main">
 		<img src="../assets/imgs/mypage_avatar.jpg" alt="Avatar" class="main_avatar">
@@ -33,12 +33,12 @@
 		<button class="btn redbtn" onclick="location.href='logout.jsp';">로그아웃</button>
 		<hr>
 		<% 		
-         if( id != null && id.equals("admin")){ 		
-        %>
-		 <a href="list.jsp"> 관리자용 - 회원 정보 목록(List)</a> <br>
+                if( id != null && id.equals("admin")){ 		
+                %>
+		<a href="list.jsp"> 관리자용 - 회원 정보 목록(List)</a> <br>
 		<%
-         }
-         %>
+                }
+                %>
 	</section>
 	<div class="main_advertise">
 		<ul id="advertise">
