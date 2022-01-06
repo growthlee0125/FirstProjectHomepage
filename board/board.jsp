@@ -67,68 +67,78 @@
 				<th>IP</th>
 			</tr>
 			<%
-      	     for(int i=0 ; i<boardList.size() ; i++){
-    	     BoardBean bb = (BoardBean) boardList.get(i);
-            %>
+      	     		for(int i=0 ; i<boardList.size() ; i++){
+    	     			BoardBean bb = (BoardBean) boardList.get(i);
+            		%>
 			<tr>
 				<td><%=bb.getNum() %></td>
 				<td>
-					<%
+				<%
 			          int wid = 0;
 			          if(bb.getRe_lev()>0){ // 답글일때
 				        wid = 10 * bb.getRe_lev()+200;
-				    %> <img src="../assets/imgs/level.gif" height="15" width="<%=wid%>"> 
-				       <img src="../assets/imgs/re.gif"> 
-				    <% } %> 
-				    <a href='content.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>'> 
-				    <%=bb.getSubject() %>
-				    </a>
+				 %> <img src="../assets/imgs/level.gif" height="15" width="<%=wid%>"> 
+				    <img src="../assets/imgs/re.gif"> 
+				 <% } %> 
+				 <a href='content.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>'> 
+				 	<%=bb.getSubject() %>
+				 </a>
 				</td>
 				<td><%=bb.getName() %></td>
 				<td><%=bb.getDate() %></td>
 				<td><%=bb.getReadcount() %></td>
 				<td><%=bb.getIp() %></td>
 			</tr>
-		   <%
-           }  
-           %>
+	  		<%
+           		}  
+           		%>
 		</table>
 		<hr>
 		<%
-        // 페이징처리
-     	 if(cnt > 0){
-    	// 한 페이지에서 보여줄 페이지 번호의 개수 
-    	 int pageBlock = 5;    	
-    	// 전체 페이지 개수 => 전체 글 / 페이지 크기
-    	 int pageCount = cnt / pageSize + (cnt % pageSize == 0? 0:1);
-    	// 페이지 블럭 시작번호 계산 
-    	 int startPage =((currentPage-1)/pageBlock)*pageBlock+1;  	
-    	// 페이지 블럭 끝번호 계산
-    	 int endPage = startPage + pageBlock - 1;
-    	 if(endPage > pageCount){
-    		endPage = pageCount;
-    	}
+        	
+		// 페이징처리
+     	 	if(cnt > 0){
+    		
+			// 한 페이지에서 보여줄 페이지 번호의 개수 
+    	 		int pageBlock = 5;    	
+    		
+			// 전체 페이지 개수 => 전체 글 / 페이지 크기
+    	 		int pageCount = cnt / pageSize + (cnt % pageSize == 0? 0:1);
+    		
+			// 페이지 블럭 시작번호 계산 
+    	 		int startPage =((currentPage-1)/pageBlock)*pageBlock+1;  	
+    		
+			// 페이지 블럭 끝번호 계산
+    	 		int endPage = startPage + pageBlock - 1;
+    	 	
+			if(endPage > pageCount){
+    			endPage = pageCount;
+    			}
     	
-    	// [이전]
-    	 if(startPage > pageBlock){
-    	%>
-		<a href="board.jsp?pageNum=<%=startPage-pageBlock%>">[이전]</a>
-		<%
-    	}
-    	 for(int i=startPage;i<=endPage;i++){
-    	%>
-		<a href="board.jsp?pageNum=<%=i%>">[<%=i %>]</a>
-		<%
-    	}    	
-    	// [다음]
-    	 if(endPage < pageCount){
-    	%>
-		<a href="board.jsp?pageNum=<%=startPage+pageBlock%>">[다음]</a>
-		<%
-    	}  	 
-      }
-      %>
-    </div>
+    			// [이전]
+    	 		if(startPage > pageBlock){
+    			%>
+				<a href="board.jsp?pageNum=<%=startPage-pageBlock%>">[이전]</a>
+			<%
+    			}
+    	 	
+			// 페이지 번호
+			for(int i=startPage;i<=endPage;i++){
+    			%>
+				<a href="board.jsp?pageNum=<%=i%>">[<%=i %>]</a>
+			<%
+    			}    	
+    		
+			// [다음]
+    	 		if(endPage < pageCount){
+    			%>
+				<a href="board.jsp?pageNum=<%=startPage+pageBlock%>">[다음]</a>
+			<%
+    			}  	 
+      		
+		}
+      		%>
+    	</div>
 	<jsp:include page="../contactbar.jsp"></jsp:include>
 </body>
 </html>
