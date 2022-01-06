@@ -4,17 +4,18 @@
 <html>
 <head>
 <jsp:include page="contact_head.jsp"></jsp:include>
-<%
-String id = (String) session.getAttribute("id");
-if (id == null) {
-%>
-<script type="text/javascript">
-	alert("로그인 후 글을 작성하실 수 있습니다.!");
-	location.href = "../member/loginForm.jsp";
-</script>
-<%
-}
-%>
+	<%
+	String id = (String) session.getAttribute("id");
+	if (id == null) {
+	%>
+		<script type="text/javascript">
+			alert("로그인 후 글을 작성하실 수 있습니다.!");
+			location.href = "../member/loginForm.jsp";
+		</script>
+	<%
+	}
+	%>
+	
 <script type="text/javascript">
 
 function gocheck() {
@@ -109,6 +110,6 @@ function gocheck() {
 			</div>
 		</div>
 	</section>
-	<jsp:include page="contactbar.jsp"></jsp:include>
+<jsp:include page="contactbar.jsp"></jsp:include>
 </body>
 </html>
