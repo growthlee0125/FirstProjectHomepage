@@ -35,7 +35,7 @@
 		</div> 
 	 </div>
 	 <!--content  -->
-	<div class="content">
+	 <div class="content">
 		<table width=100 style="table-layout: fixed" border="1" class="table table-striped table-bordered">
 			<tr>
 				<td>글번호</td>
@@ -73,15 +73,15 @@
 			<tr>
 				<td colspan="8">
 				<c:if test="${id.equals(name)}">
-				<input type="button" value="수정하기" class="btn btn-dark" 
-					   onclick="location.href='updateForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>';">
-				<input type="button" value="삭제하기" class="btn btn-dark" 
-					   onclick="location.href='deleteForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>';">
-			    </c:if>
-			    <input type="button" value="답글쓰기" class="btn btn-dark" 
-					   onclick="location.href='reWriteForm.jsp?num=<%=bb.getNum()%>&re_ref=<%=bb.getRe_ref()%>&re_lev=<%=bb.getRe_lev()%>&re_seq=<%=bb.getRe_seq()%>';">
-			    <input type="button" value="목록으로" class="btn btn-dark" 
-					   onclick="location.href='board.jsp?pageNum=<%=pageNum%>';">
+					<input type="button" value="수정하기" class="btn btn-dark" 
+					   	onclick="location.href='updateForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>';">
+					<input type="button" value="삭제하기" class="btn btn-dark" 
+					   	onclick="location.href='deleteForm.jsp?num=<%=bb.getNum()%>&pageNum=<%=pageNum%>';">
+			    	</c:if>
+			    	<input type="button" value="답글쓰기" class="btn btn-dark" 
+				       onclick="location.href='reWriteForm.jsp?num=<%=bb.getNum()%>&re_ref=<%=bb.getRe_ref()%>&re_lev=<%=bb.getRe_lev()%>&re_seq=<%=bb.getRe_seq()%>';">
+			    	<input type="button" value="목록으로" class="btn btn-dark" 
+				       onclick="location.href='board.jsp?pageNum=<%=pageNum%>';">
 				</td>
 			</tr>
 		</table>
