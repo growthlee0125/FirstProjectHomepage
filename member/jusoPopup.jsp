@@ -25,7 +25,7 @@ function init(){
 	}else{
 		opener.jusoCallBack("<%=roadFullAddr%>");
 		window.close();
-		}
+	}
 }
 </script>
 <body onload="init();">
