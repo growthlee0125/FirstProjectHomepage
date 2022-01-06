@@ -49,7 +49,7 @@ if (id == null) {
 			</p>
 		</div>
 	</div>
-   <fieldset class="rewriteform">
+  <fieldset class="rewriteform">
    <h2 class="update_title">답글쓰기</h2>
    <form action="reWritePro.jsp" name="rewrite" method="post" onsubmit="return checkPass()">
        <input type="hidden" name="num" value="<%=num%>">
@@ -57,26 +57,26 @@ if (id == null) {
        <input type="hidden" name="re_lev" value="<%=re_lev%>">
        <input type="hidden" name="re_seq" value="<%=re_seq%>">
        <div class="mb-3">
-  			<label for="name" class="form-label">작성자</label>
-  			<input type="text" class="form-control" name="name" value="<%=id%>" readonly="readonly" >			
-	   </div>
-	   <div class="mb-3">
-  			<label for="pass" class="form-label">비밀번호</label>
-  			<input type="password" class="form-control" name="pass">			
-	   </div>
-	   <div class="mb-3">
-  			<label for="subject" class="form-label">글제목</label>
-  			<input type="text" class="form-control" name="subject" value="[답글]">			
-	   </div>
-	   <div class="mb-3">
-  			<label for="content" class="form-label">글내용</label>
+  		<label for="name" class="form-label">작성자</label>
+  		<input type="text" class="form-control" name="name" value="<%=id%>" readonly="readonly" >			
+       </div>
+       <div class="mb-3">
+  		<label for="pass" class="form-label">비밀번호</label>
+  		<input type="password" class="form-control" name="pass">			
+       </div>
+       <div class="mb-3">
+  		<label for="subject" class="form-label">글제목</label>
+  		<input type="text" class="form-control" name="subject" value="[답글]">			
+       </div>
+       <div class="mb-3">
+  		<label for="content" class="form-label">글내용</label>
       		<textarea style="resize: none;" rows="10" cols="20" class="form-control"  name="content"></textarea>
-	   </div>      	      	
+       </div>      	      	
        <hr>
        <input type="submit" class="btn btn-dark" value="답글쓰기">     
-	   <input type="button" class="btn btn-dark" value="목록으로" onclick="location.href='board.jsp';">     
-     </form>
-   </fieldset>
- <jsp:include page="../contactbar.jsp"></jsp:include>
+       <input type="button" class="btn btn-dark" value="목록으로" onclick="location.href='board.jsp';">     
+   </form>
+  </fieldset>
+  <jsp:include page="../contactbar.jsp"></jsp:include>
 </body>
 </html>
