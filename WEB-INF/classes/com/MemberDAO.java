@@ -34,7 +34,8 @@ public class MemberDAO {
 
 		return con;
 	}
-
+	
+	// 자원 종료
 	public void closeDB() {
 		try {
 			if (rs != null)
@@ -47,7 +48,6 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
-	// DB연결 메소드
 
 	// 로그인 메서드 - loginMember()
 	public int loginMember(String id, String pass) {
@@ -131,16 +131,16 @@ public class MemberDAO {
 			Connection con = getCon();
 			System.out.println("디비연결성공");
 
-			String sql = "select id from member_db where id=?";
+			String sql = "select * from member_db where id=?";
 			PreparedStatement pstmt = con.prepareStatement(sql);			
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()){
 				result = 0;
-		    }else {
-		    	result = 1;
-		    }
+		    	} else {
+		    		result = 1;
+		   	}
 			System.out.println("아이디 중복 체크 완료");
 			
 		} catch (SQLException e) {
@@ -151,8 +151,7 @@ public class MemberDAO {
 			closeDB();
 		}		
 		return result;	 
-    }
-	
+    	}
 	// 아이디 중복체크 메서드 - duplicateIdcheck()
 	
 	// 회원정보 조회 메서드 - select Member()
@@ -162,7 +161,6 @@ public class MemberDAO {
 	
 		try {
 			Connection con = getCon();
-
 			String sql = "select * from member_db where id=?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -175,9 +173,9 @@ public class MemberDAO {
 				smb.setGender(rs.getString("gender"));
 				smb.setEmail(rs.getString("email"));
 				smb.setAddress(rs.getString("address"));
-		    }
+		    	}
 		    
-		    System.out.println(" 회원정보 조회 성공! (select)");
+		    	System.out.println(" 회원정보 조회 성공! (select)");
 		    
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -188,7 +186,6 @@ public class MemberDAO {
 		}	
 		return smb;
 	}
-	
 	// 회원정보 조회 메서드 - selectMember()
 	
 	// 회원탈퇴 메서드 - deleteMember()
@@ -203,7 +200,6 @@ public class MemberDAO {
 			String sql =  "select pass from member_db where id=?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
-			
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs.next()){
@@ -217,8 +213,9 @@ public class MemberDAO {
 				}else {
 					// 비밀번호 오류
 					check=-1;
-			    }
+			    	}
 			} else {
+				// 회원정보 없음
 				check = 0;
 			}
 			
@@ -239,36 +236,36 @@ public class MemberDAO {
 				
 	        MemberBean mb = new MemberBean();
 			
-			try {
-				Connection con = getCon();
+		try {
+			Connection con = getCon();
 
-				String sql = "select * from member_db where id=?";
-				PreparedStatement pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, id);
-				ResultSet rs = pstmt.executeQuery();
+			String sql = "select * from member_db where id=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
 				
-				if(rs.next()){
-					mb.setName(rs.getString("name"));
-					mb.setAge(rs.getInt("age"));
-					mb.setGender(rs.getString("gender"));
-					mb.setEmail(rs.getString("email"));
-					mb.setAddress(rs.getString("address"));
-				}
+			if(rs.next()){
+				mb.setName(rs.getString("name"));
+				mb.setAge(rs.getInt("age"));
+				mb.setGender(rs.getString("gender"));
+				mb.setEmail(rs.getString("email"));
+				mb.setAddress(rs.getString("address"));
+			}
 					
-				// 성별의 정보가 없을경우 기본값 설정
-				if(mb.getGender() == null){
-					mb.setGender("남자");
-				}
+			// 성별의 정보가 없을경우 기본값 설정
+			if(mb.getGender() == null){
+				mb.setGender("남자");
+			}
 													
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				closeDB();
-			}	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}	
 				
-			return mb;				
+		return mb;				
 	} 
 	// 회원정보 수정 전 정보가져오기 - updateInfoMember()
 	
@@ -302,7 +299,7 @@ public class MemberDAO {
 				}else {
 					ck=-1;
 					System.out.println("비밀번호 오류");
-						}
+				}
 			}else {
 				ck=0;
 				System.out.println("회원정보 없음");
@@ -315,7 +312,6 @@ public class MemberDAO {
 		} finally {
 			closeDB();
 		}	
-				
 		return ck;								
 	} 
 	// 회원정보 수정 - updateMember()
@@ -342,7 +338,7 @@ public class MemberDAO {
 				lmb.setAddress(rs.getString("address"));
 				
 				memberlist.add(lmb);
-		    }
+		 	}
 		    
 		    System.out.println(" 회원정보 조회 성공! (select)");
 		    
