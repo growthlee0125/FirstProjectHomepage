@@ -6,12 +6,15 @@
 <jsp:include page="board_head.jsp"></jsp:include>
 </head>
 <body>
+
 <script type="text/javascript">
+// 번역기 열기 팝업창	
 function gotrans() {
 	var pop = window.open("../translator.jsp", "pop",
 	"width=600,height=800, scrollbars=no, resizable=yes");
 }
 </script>
+	
 	<div class="header">
   		<h1 onclick="location.href='../index.html';">Carpe-Diem</h1>
   		<p>Carpe diem, quam minimum credula postero</p>
