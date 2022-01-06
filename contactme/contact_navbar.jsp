@@ -7,10 +7,12 @@
 </head>
 <body>
 <script type="text/javascript">
-function gotrans() {
-	var pop = window.open("../translator.jsp", "pop",
-	"width=600,height=800, scrollbars=no, resizable=yes");
-}
+	
+	// 번역기 팝업창 열기
+	function gotrans() {
+		var pop = window.open("../translator.jsp", "pop",
+		"width=600,height=800, scrollbars=no, resizable=yes");
+	}
 </script>
 	<div class="header">
   		<h1 onclick="location.href='../index.html';">Carpe-Diem</h1>
