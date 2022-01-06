@@ -12,14 +12,15 @@
 String id = (String) session.getAttribute("id");
 if (id == null) {
 %>
-<script type="text/javascript">
-	alert("로그인 후 글을 작성하실 수 있습니다.!");
-	location.href = "../member/loginForm.jsp";
-</script>
+	<script type="text/javascript">
+		alert("로그인 후 글을 작성하실 수 있습니다.!");
+		location.href = "../member/loginForm.jsp";
+	</script>
 <%
 }
 %>
 <script type="text/javascript">
+	
 	function checkPass() {
 
 		var pass = document.boardInfo.pass.value;
@@ -33,22 +34,22 @@ if (id == null) {
 		}
 		
 		if(subject == ""){
-		    alert("제목을 입력하세요.");
-		    document.boardInfo.subject.focus();
-		    return false;
+		    	alert("제목을 입력하세요.");
+		    	document.boardInfo.subject.focus();
+		    	return false;
 		}
 		
 		if(content == ""){
-		    alert("내용 입력하세요.");
-		    document.boardInfo.content.focus();
-		    return false;
+		    	alert("내용 입력하세요.");
+		    	document.boardInfo.content.focus();
+		    	return false;
 		}
 	}		
 </script>
 </head>
 <body>
-	<jsp:include page="board_navbar.jsp"></jsp:include>
-	<br><br>
+    <jsp:include page="board_navbar.jsp"></jsp:include>
+    <br><br>
     <h1>Community</h1>
 	<div class="contents1">
 		<div class="con_title">
@@ -59,33 +60,33 @@ if (id == null) {
 			</p>
 		</div>
 	</div>
-<!-- write form  -->
+   <!-- write form  -->
    <fieldset class="writeform">
      <form action="writePro.jsp" name="boardInfo" method="post" enctype="multipart/form-data" onsubmit="return checkPass()">
       	<div class="mb-3">
   			<label for="id" class="form-label">아이디</label>
   			<input type="text" class="form-control" name="name" 
-  				   value=<%=id %> readonly="readonly" id="name" >
-		</div>
-		<div class="mb-3">
+  			       value=<%=id %> readonly="readonly" id="name" >
+	</div>
+	<div class="mb-3">
   			<label for="pass" class="form-label">비밀번호</label>
   			<input type="password" class="form-control" name="pass">
-		</div>
+	</div>
       	<div class="mb-3">
   			<label for="file" class="form-label">첨부파일</label>
   			<input type="file" class="form-control" name="file">
-		</div>
-		<div class="mb-3">
+	</div>
+	<div class="mb-3">
   			<label for="subject" class="form-label">제목</label>
   			<input type="text" class="form-control" name="subject">
-		</div>
+	</div>
       	<div class="mb-3">
   			<label for="content" class="form-label">내용</label>
   			<textarea class="form-control" name="content" rows="5" cols="20"></textarea>
-		</div>     	
+	</div>     	
       	<hr>
-		<input type="submit" class="btn btn-dark" value="글쓰기">     
-		<input type="button" class="btn btn-dark" value="목록으로" onclick="location.href='board.jsp';">     
+	<input type="submit" class="btn btn-dark" value="글쓰기">     
+	<input type="button" class="btn btn-dark" value="목록으로" onclick="location.href='board.jsp';">     
      </form>
    </fieldset>
    <jsp:include page="../contactbar.jsp"></jsp:include>
