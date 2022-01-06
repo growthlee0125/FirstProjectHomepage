@@ -6,7 +6,7 @@
 <jsp:include page="board_head.jsp"></jsp:include>
 </head>
 <body>  
-  <%
+   <%
     request.setCharacterEncoding("UTF-8");
    %>
    <jsp:useBean id="bb" class="com.BoardBean"/>
@@ -16,6 +16,6 @@
     BoardDAO bDAO = new BoardDAO();
     bDAO.reInsertBoard(bb);    
     response.sendRedirect("board.jsp");
-  	%>
+   %>
 </body>
 </html>
