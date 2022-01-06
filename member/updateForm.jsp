@@ -7,6 +7,7 @@
 <jsp:include page="member_head.jsp"></jsp:include>
 <script type="text/javascript">
 
+// 우편주소 불러오기
 function goPopup() {
 	var pop = window.open("jusoPopup.jsp", "pop",
 			"width=570,height=420, scrollbars=yes, resizable=yes");
@@ -17,9 +18,10 @@ function jusoCallBack(roadFullAddr) {
 	addressInfo.value = roadFullAddr;
 }
 
+// 수정 유효성 검사	
 function updateCheck(){
 	
-    var o_passcheck = ${pass};
+    	var o_passcheck = ${pass};
 	var pass = document.updateuserInfo.pass.value;
 	var passck = document.updateuserInfo.passck.value;
 	var name = document.updateuserInfo.name.value;
@@ -35,20 +37,20 @@ function updateCheck(){
 		return false;
 	}
 	
-    if(pass != o_passcheck){
-    	 alert("비밀번호가 올바르지 않습니다.")
-    	 return false;
-    }
+    	if(pass != o_passcheck){
+    	 	alert("비밀번호가 올바르지 않습니다.")
+    	 	return false;
+    	}
     
-    if(passck == ""){
-        alert("비밀번호 확인을 입력해주세요.")
-        return false;	
-    }
+    	if(passck == ""){
+        	alert("비밀번호 확인을 입력해주세요.")
+        	return false;	
+    	}
      
-    if(pass != passck){
-   	 alert("비밀번호 확인이 일치하지 않습니다.")
-   	 return false;
-    }
+    	if(pass != passck){
+   		alert("비밀번호 확인이 일치하지 않습니다.")
+   		return false;
+    	}
         
 	if(name == ""){
 		alert("이름을 입력하세요.");
@@ -79,11 +81,11 @@ function updateCheck(){
 		return false;
 	}
 	
-    if(!emailRegExp.test(email)) {
-        alert("이메일 형식이 올바르지 않습니다.");
-        document.updateuserInfo.email.focus();
-        return false;
-     }
+    	if(!emailRegExp.test(email)) {
+        	alert("이메일 형식이 올바르지 않습니다.");
+        	document.updateuserInfo.email.focus();
+        	return false;
+     	}
 	
 	if(address == ""){
 		alert("주소정보를 입력하세요");
@@ -100,7 +102,7 @@ function goFirstForm() {
 </script>
 </head>
 <body>
-	<jsp:include page="member_navbar.jsp"></jsp:include>
+<jsp:include page="member_navbar.jsp"></jsp:include>
 	
 	<%
 	String id = (String) session.getAttribute("id");
@@ -116,7 +118,7 @@ function goFirstForm() {
 		<h2>회원정보 수정</h2>
 		<form action="updatePro.jsp" method="post" name="updateuserInfo" class="updateuserInfo"
 		      onsubmit="return updateCheck()" style="border:1px solid #ccc">
-		    <label for="id"><b>ID</b></label>
+		    	<label for="id"><b>ID</b></label>
 			<input type="text" name="id" value="<%=id %>" readonly="readonly"> 	 
 			<label for="pass"><b>Password</b></label>
 			<input type="password" name="pass" maxlength="15" placeholder="비밀번호를 입력하시오."><br>
@@ -128,16 +130,16 @@ function goFirstForm() {
 			<input type="text" name="age"  maxlength="2" value="<%=mb.getAge()%>"><br>
 			<label for="gender"><b>Gender</b></label>
 			<div class="select">
-     		<input type="radio" id="select" name="gender" value="남자"
-     			<%if(mb.getGender().equals("남자")){ %>
-		           		checked
-		        <%} %>
-     			><label for="select">남자</label>
-    		<input type="radio" id="select2" name="gender" value="여자"
-    			<%if(mb.getGender().equals("여자")){ %>
-		           		checked
-		        <%} %>
-    			><label for="select2">여자</label>
+     				<input type="radio" id="select" name="gender" value="남자"
+     				<%if(mb.getGender().equals("남자")){ %>
+		           			checked
+		        	<%} %>
+     				><label for="select">남자</label>
+    				<input type="radio" id="select2" name="gender" value="여자"
+    				<%if(mb.getGender().equals("여자")){ %>
+		           			checked
+		        	<%} %>
+    				><label for="select2">여자</label>
 			</div>
 			<label for="email"><b>E-mail</b></label>
 			<input type="text" name="email" value="<%=mb.getEmail()%>"><br>
@@ -150,6 +152,6 @@ function goFirstForm() {
 			<input type="button" value="수정취소" onclick="goFirstForm()">
 		</form>
 	</div>
-	<jsp:include page="../contactbar.jsp"></jsp:include>
+<jsp:include page="../contactbar.jsp"></jsp:include>
 </body>
 </html>
