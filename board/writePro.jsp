@@ -27,6 +27,7 @@
                   		  new DefaultFileRenamePolicy()
                   		  );
    System.out.println("파일 업로드 완료");
+   
    String name = multi.getParameter("name");
    String pass = multi.getParameter("pass");
    String file = multi.getFilesystemName("file");
