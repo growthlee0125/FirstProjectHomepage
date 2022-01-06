@@ -33,11 +33,11 @@
     	<%
     }else{
     	%>
-	   	 <script type="text/javascript">
-	   	     alert("비밀번호를 입력해주세요!");
-	   	     history.back();
-	   	 </script>    	
-   		<%
+	  <script type="text/javascript">
+	     alert("비밀번호를 입력해주세요!");
+	     history.back();
+	  </script>    	
+   	<%
     }
    %>
 </body>
