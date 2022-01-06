@@ -32,11 +32,11 @@
     	<%
      }else{ //check == -1
       	%>
-	   	 <script type="text/javascript">
-	   	     alert("해당 글 정보가 없습니다.");
-	   	     history.back();
-	   	 </script>    	
-   		<%
+	<script type="text/javascript">
+             alert("해당 글 정보가 없습니다.");
+	     history.back();
+	</script>    	
+   	<%
      }
    %>
 </body>
