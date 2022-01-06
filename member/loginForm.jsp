@@ -3,12 +3,14 @@
 <html>
 <head>
 <jsp:include page="member_head.jsp"></jsp:include>
+
 <!-- 카카오 로그인  -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
 <!-- 네이버 로그인  -->
 <script type="text/javascript" 
-		src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" 
-		charset="utf-8">
+        src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" 
+        charset="utf-8">
 </script>
 </head>
 <body>
@@ -26,6 +28,7 @@
 				Login with Social Media or Manually
 				</h2>
 				<div class="login_vl">
+					<!-- 네이버 / 카카오 로그아웃 기능 몰래 삽입  -->
 					<span class="login_inner" onclick="kakaoLogout();">or</span>
 				</div>
 				<div class="login_col">
@@ -88,17 +91,17 @@
 		naverLogout();		
 	    
 		if (Kakao.Auth.getAccessToken()) {
-	      Kakao.API.request({
-	        url: '/v1/user/unlink',
-	        success: function (response) {
-	        	console.log(response)
-	        },
-	        fail: function (error) {
-	          	console.log(error)
-	        },
-	      })
-	      Kakao.Auth.setAccessToken(undefined)
-	    }
+	            Kakao.API.request({
+	              url: '/v1/user/unlink',
+	              success: function (response) {
+	        	 console.log(response)
+	              },
+	              fail: function (error) {
+	          	 console.log(error)
+	              },
+	            })
+	           Kakao.Auth.setAccessToken(undefined)
+	       }
 	}  
 	
 	/* 네이버 소셜 로그인 */
