@@ -70,7 +70,6 @@
 <details>
 <summary>발표자료 보기</summary>
 <div markdown="1">
- {
 1.
 <img src="https://user-images.githubusercontent.com/92525310/148328986-0837c846-db77-4c9e-b950-c3da3696550f.png">
 2. 
