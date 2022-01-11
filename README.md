@@ -72,7 +72,7 @@
 
 :zap: jsp 모델1 구조를 구현해 보았으니 모델 2구조에 대해서도 공부하고 시도해보아야겠다.
 
-## 발표자료_PPT
+## 📈 발표자료_PPT
 <details>
 <summary>발표자료 보기</summary>
 <div markdown="1">
