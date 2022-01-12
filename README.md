@@ -61,9 +61,9 @@
 
 ## :thought_balloon: 회고 및 느낀점
 
-:zap: 3달간 배운 JSP Model1 구조를 활용하여 나의 첫번째 프로젝트 홈페이지를 만들어 보았다. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아직까지는 파일 구조도 코드들도 전부 다 어지럽지만 차근차근 배워나가며 <br> 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;클린코드를 구현할 수 있도록 노력해야겠다.
+:zap: 3달간 배운 JSP Model1 구조를 활용하여 홈페이지를 만들어 보았다. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아직까지는 구현에만 치중하여 코드들이 체계를 갖추지 못하고 어지럽지만<br>          
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;차근차근 배워나가며 클린코드를 구현할 수 있도록 노력해야겠다.
    
 :zap: 소셜 로그인 정보를 받아오는 것 까지는 구현하였으나 실제 회원가입으로 이어지는 부분은 구현하지 못하였다. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;다음 프로젝트에서는 이부분을 구현할 수 있도록 도전해봐야겠다.
