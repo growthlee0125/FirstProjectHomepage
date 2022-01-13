@@ -1,4 +1,4 @@
-# <center> 😎 Carpe Diem - 나의 첫 개인 프로젝트 </center>
+# <center> 😎 Carpe Diem - 첫 번째 개인 프로젝트 </center>
 
 ![image](https://user-images.githubusercontent.com/92525310/148883792-41207cbc-2038-40ad-98b5-d89d50c1bae0.png)
 
